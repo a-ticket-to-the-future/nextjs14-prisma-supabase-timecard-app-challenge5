@@ -3,6 +3,10 @@
 import React, { useEffect, useState } from 'react'
 import prisma from '../lib/prismaClient';
 import { User } from '../types/types';
+import { Timecard } from '../types/types';
+
+
+
 
 const App = () => {
 
@@ -19,9 +23,22 @@ const App = () => {
             const usersData:User = await response.json();
 
         
-            console.log(usersData)
+            // console.log(usersData)
+            return usersData
         }
         fetchUsers()
+    },[])
+
+    useEffect( () => {
+        const fetchTimecards = async () => {
+            const response =  fetch("http://localhost:3000/api/timecard",{
+                cache:'no-store',
+            }) 
+            
+            const timecardData:Timecard = await (await response).json();
+            console.log(timecardData)
+        }
+        fetchTimecards()
     },[])
 
   return (
