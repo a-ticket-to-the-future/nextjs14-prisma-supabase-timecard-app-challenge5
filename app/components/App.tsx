@@ -36,13 +36,43 @@ const App = () => {
             }) 
             
             const timecardData:Timecard = await (await response).json();
-            console.log(timecardData)
+            return timecardData;
         }
         fetchTimecards()
     },[])
 
   return (
-    <div>App</div>
+    <div className=' flex flex-col'>
+        <h1 className=' text-4xl bg-green-400 text-slate-50 rounded-md font-bold px-[50px] py-[5px] text-center'>
+            タイムカード
+        </h1>
+        <div className=' flex flex-col mt-[60px] gap-5'>
+            <div className=' bg-sky-400 w-[800px] h-[50px] flex gap-20 justify-center '>
+                <div className='  border-2 border-slate-50 rounded-lg px-5 pt-3'>ボタン</div>
+                <div className=' border-2 border-black text-slate-50 rounded-lg px-5 pt-3'  >状態</div>
+                <div className='  border-2 border-slate-50 rounded-lg px-5 pt-3'>計測値</div>
+                <div className=' border-2 border-black text-slate-50 rounded-lg px-5 pt-3'  >合計時間</div>
+
+
+            </div>
+            {/* <div className=' bg-sky-400 w-[800px] h-[50px] flex gap-20 justify-center '>
+                <div className='  border-2 border-slate-50 rounded-lg px-5 pt-3'>ボタン</div>
+                <div className=' border-2 border-black text-slate-50 rounded-lg px-5 pt-3'  >状態</div>
+                <div className='  border-2 border-slate-50 rounded-lg px-5 pt-3'>計測値</div>
+                <div className=' border-2 border-black text-slate-50 rounded-lg px-5 pt-3'  >合計時間</div>
+
+
+            </div>
+            <div className=' bg-sky-400 w-[800px] h-[50px] flex gap-20 justify-center '>
+                <div className='  border-2 border-slate-50 rounded-lg px-5 pt-3'>ボタン</div>
+                <div className=' border-2 border-black text-slate-50 rounded-lg px-5 pt-3'  >状態</div>
+                <div className='  border-2 border-slate-50 rounded-lg px-5 pt-3'>計測値</div>
+                <div className=' border-2 border-black text-slate-50 rounded-lg px-5 pt-3'  >合計時間</div>
+
+
+            </div> */}
+        </div>
+    </div>
   )
 }
 
