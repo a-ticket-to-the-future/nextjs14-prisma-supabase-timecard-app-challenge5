@@ -5,6 +5,24 @@ import prisma from '../lib/prismaClient'
 const getCurrentUser = async () => {
     try {
 
+        const session = await getServerSession(authOptions)
+
+        if (!session?.user?.email){
+            return null
+        }
+
+        const response = await prisma.user.findUnique({
+            where: {
+                email: session.user.email,
+            },
+        })
+
+        if (!response) {
+            return null
+        }
+
+        return response
+
     } catch (error) {
         return null
     }
