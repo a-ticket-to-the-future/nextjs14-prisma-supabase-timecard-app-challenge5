@@ -4,7 +4,11 @@ import useLoginModal from '@/app/hooks/useLoginModal'
 import useProfileModal from '@/app/hooks/useProfileModal'
 import useSignupModal from '@/app/hooks/useSignupModal'
 import { User } from '@prisma/client'
+import Image from 'next/image'
 import React, { useCallback, useState } from 'react'
+import MenuItem from './MenuItem'
+import { signOut } from 'next-auth/react'
+// import MenuItem from './MenuItem'
 
 
 type MenuProps = {
@@ -26,7 +30,55 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
     },[])
 
   return (
-    <div></div>
+    <div className=' relative'>
+        <div className=' relative h-10 w-10 cursor-pointer' onClick={toggleOpen}>
+            <Image src={ currentUser?.image || '/default.jpg'} alt="avatar" fill className=' rounded-full object-cover'  />
+        </div>
+
+        {isOpen && (
+            <div className=' absolute right-0 z-10 w-40 overflow-hidden rounded-lg bg-white text-sm shadow-lg shadow-gray-100'>
+                <div className=' cursor-pointer'>
+                    {currentUser ? (
+                        <>
+                            <MenuItem 
+                                label='プロフィール'
+                                onClick={() => {
+                                    profileMOdal.onOpen()
+                                    SetIsOpen(false)
+                                }}
+                            />
+                            <MenuItem
+                                label='ログアウト'
+                                onClick={() => {
+                                    signOut()
+                                    SetIsOpen(false)
+                                }}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <MenuItem
+                                label='ログイン'
+                                onClick={() => {
+                                    loadingModal.onOpen()
+                                    SetIsOpen(false)
+                                }}
+                            />
+                            <MenuItem
+                                label='サインアップ'
+                                onClick={() => {
+                                    signupModal.onOpen()
+                                    SetIsOpen(false)
+                                }}
+                            />
+                        </>
+                    )}
+
+                </div>
+            </div>
+        )}
+
+    </div>
   )
 }
 
