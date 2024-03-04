@@ -26,7 +26,7 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
     },[])
 
   return (
-    <div>Menu</div>
+    <div></div>
   )
 }
 
