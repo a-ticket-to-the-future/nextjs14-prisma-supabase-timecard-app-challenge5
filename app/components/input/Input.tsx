@@ -13,8 +13,8 @@ type InputProps ={
     required?: boolean
     register: UseFormRegister<FieldValues>
     errors: any
-    placeholder: string
-    className: string
+    placeholder: any
+    className: any
 }
 
 //　入力フォーム
