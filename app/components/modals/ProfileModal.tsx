@@ -14,6 +14,7 @@ import Modal from './Modal'
 
 import axios from 'axios'
 import { z } from 'zod'
+import ImageUpload from '../input/ImageUpload'
 
 //　ステップの定義
 enum STEPS {
@@ -24,7 +25,7 @@ enum STEPS {
 //　入力データの検証ルールを定義
 const schema = z.object({
     name: z.string().min(2, { message: "2文字以上入力する必要があります"}),
-    image: z.string().isOptional(),
+    image: z.string().optional(),
 })
 
 type ProfileModalProps = {
