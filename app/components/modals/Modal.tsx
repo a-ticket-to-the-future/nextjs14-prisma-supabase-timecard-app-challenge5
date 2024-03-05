@@ -6,7 +6,7 @@ import { IoMdClose } from 'react-icons/io'
 import Button from '../button/Button'
 
 type ModalProps = {
-    isOpen: boolean
+    isOpen?: boolean
     onClose: () => void
     onSubmit: () => void
     title?: string
