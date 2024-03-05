@@ -100,9 +100,9 @@ const Modal: React.FC<ModalProps> = ({
                                 {secondaryAction && secondaryLabel && (
                                     <Button 
                                         disabled={disabled}
-                                        label={primaryLabel}
+                                        label={secondaryLabel}
                                         onClick={handleSecondaryAction}
-                                        del={del}
+                                        outline
                                     />
                                 )}
                                 {/* メインボタン */}

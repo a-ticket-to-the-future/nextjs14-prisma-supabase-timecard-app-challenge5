@@ -19,14 +19,14 @@ type MenuProps = {
 //　メニュー
 const Menu:React.FC<MenuProps> = ({currentUser}) => {
 
-    const [isOpen, SetIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const loadingModal = useLoginModal()
     const signupModal = useSignupModal()
     const profileMOdal = useProfileModal()
 
     //　メニューオープン
     const toggleOpen = useCallback(() => {
-        SetIsOpen((value) => !value)  
+        setIsOpen((value) => !value)  
     },[])
 
   return (
@@ -44,14 +44,14 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
                                 label='プロフィール'
                                 onClick={() => {
                                     profileMOdal.onOpen()
-                                    SetIsOpen(false)
+                                    setIsOpen(false)
                                 }}
                             />
                             <MenuItem
                                 label='ログアウト'
                                 onClick={() => {
                                     signOut()
-                                    SetIsOpen(false)
+                                    setIsOpen(false)
                                 }}
                             />
                         </>
@@ -61,14 +61,14 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
                                 label='ログイン'
                                 onClick={() => {
                                     loadingModal.onOpen()
-                                    SetIsOpen(false)
+                                    setIsOpen(false)
                                 }}
                             />
                             <MenuItem
                                 label='サインアップ'
                                 onClick={() => {
                                     signupModal.onOpen()
-                                    SetIsOpen(false)
+                                    setIsOpen(false)
                                 }}
                             />
                         </>
