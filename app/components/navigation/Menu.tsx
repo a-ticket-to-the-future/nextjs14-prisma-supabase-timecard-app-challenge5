@@ -20,9 +20,9 @@ type MenuProps = {
 const Menu:React.FC<MenuProps> = ({currentUser}) => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const loadingModal = useLoginModal()
+    const loginModal = useLoginModal()
     const signupModal = useSignupModal()
-    const profileMOdal = useProfileModal()
+    const profileModal = useProfileModal()
 
     //　メニューオープン
     const toggleOpen = useCallback(() => {
@@ -43,7 +43,7 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
                             <MenuItem 
                                 label='プロフィール'
                                 onClick={() => {
-                                    profileMOdal.onOpen()
+                                    profileModal.onOpen()
                                     setIsOpen(false)
                                 }}
                             />
@@ -60,7 +60,7 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
                             <MenuItem
                                 label='ログイン'
                                 onClick={() => {
-                                    loadingModal.onOpen()
+                                    loginModal.onOpen()
                                     setIsOpen(false)
                                 }}
                             />
