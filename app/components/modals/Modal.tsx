@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
                                     <Button 
                                         disabled={disabled}
                                         label={primaryLabel}
-                                        onClick={handleSubmit}
+                                        onClick={handleSecondaryAction}
                                         del={del}
                                     />
                                 )}
