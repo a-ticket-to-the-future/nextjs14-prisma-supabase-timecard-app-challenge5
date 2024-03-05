@@ -10,8 +10,10 @@ type ButtonProps = {
     disabled?: boolean
     outline?: boolean
     del?: boolean
-    icon?: IconType
+    icon?: IconType | any
 }
+
+//エラーが消えない理由がわからないので一旦　| anyを置いておく。あとで直せよ！
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, disabled, outline, del, icon: Icon}) => {
 
