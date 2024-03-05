@@ -32,11 +32,11 @@ const Menu:React.FC<MenuProps> = ({currentUser}) => {
   return (
     <div className=' relative'>
         <div className=' relative h-10 w-10 cursor-pointer' onClick={toggleOpen}>
-            <Image src={ currentUser?.image || '/default.jpg'} alt="avatar" fill className=' rounded-full object-cover'  />
+            <Image src={ currentUser?.image || '/default.jpeg'} alt="avatar" fill className=' rounded-full object-cover'  />
         </div>
 
         {isOpen && (
-            <div className=' absolute right-0 z-10 w-40 overflow-hidden rounded-lg bg-white text-sm shadow-lg shadow-gray-100'>
+            <div className=' absolute right-0 z-10 w-40 overflow-hidden rounded-lg bg-white text-sm text-black shadow-lg shadow-gray-100'>
                 <div className=' cursor-pointer'>
                     {currentUser ? (
                         <>
