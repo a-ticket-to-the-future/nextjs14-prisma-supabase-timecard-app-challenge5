@@ -26,6 +26,8 @@ const Input:React.FC<InputProps> = ({
     required,
     register,
     errors,
+    // placeholder,
+    // className,
 }) => {
   return (
     <div className=' relative w-full'>
