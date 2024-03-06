@@ -4,10 +4,11 @@ import "./globals.css";
 import AuthContext from "./context/AuthContext";
 import Navigation from "./components/navigation/Navigation";
 import getCurrentUser from "./actions/getCurrentUser";
-import { Toaster } from "react-hot-toast";
+// import { Toaster } from "react-hot-toast";
 import SignupModal from "./components/modals/SignupModal";
 import LoginModal from "./components/modals/LoginModal";
 import ProfileModal from "./components/modals/ProfileModal";
+import ToasterContext from "./context/ToasterContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,19 +18,19 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  children,
-}: Readonly<{
+  children
+}: {
   children: React.ReactNode;
-}>) {
+}) {
 
   const currentUser = await getCurrentUser();
 
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={inter.className}>
         <AuthContext>
           {/* Toaster */}
-          <Toaster />
+          <ToasterContext />
           {/* モーダル */}
           <SignupModal />
           <LoginModal />
@@ -37,7 +38,7 @@ export default async function RootLayout({
 
           <div className=" flex min-h-screen flex-col">
             <Navigation currentUser={currentUser} />
-              <main>
+              <main className=" container mx-auto max-w-screen-sm flex-1 px-1 py-5">
                 {children}
               </main>
                   <footer className='py-5'>

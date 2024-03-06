@@ -1,7 +1,7 @@
 "use client"
 
-import { useRouter } from 'next/navigation'
 import React, { useState, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { FcGoogle } from "react-icons/fc"
 import { toast } from 'react-hot-toast'
@@ -11,11 +11,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import useLoginModal from '@/app/hooks/useLoginModal'
 import useSignupModal from '@/app/hooks/useSignupModal'
-import Input from '@/app/components/input/Input'
-import * as z from 'zod'
-import axios from 'axios'
-import Button from '../button/Button'
 import Modal from './Modal'
+import Input from '@/app/components/input/Input'
+import Button from '../button/Button'
+import axios from 'axios'
+import * as z from 'zod'
 
 
 const schema = z.object({

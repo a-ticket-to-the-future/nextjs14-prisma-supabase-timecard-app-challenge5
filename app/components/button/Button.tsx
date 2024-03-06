@@ -10,7 +10,7 @@ type ButtonProps = {
     disabled?: boolean
     outline?: boolean
     del?: boolean
-    icon?: IconType | any
+    icon?: IconType 
 }
 
 //エラーが消えない理由がわからないので一旦　| anyを置いておく。あとで直せよ！

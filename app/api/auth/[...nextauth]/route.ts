@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
 
             async authorize(credentials) {
 
-                if(!credentials?.email || !credentials.password) {
+                if(!credentials?.email || !credentials?.password) {
                     throw new Error('メールアドレスとパスワードが存在しません')
                 }
                 const user = await prisma.user.findUnique ({

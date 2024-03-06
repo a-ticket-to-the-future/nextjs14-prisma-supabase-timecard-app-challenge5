@@ -30,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({
     secondaryAction,
     secondaryLabel,
     disabled,
-    del= false,
+    del = false,
 }) => {
 
     // 閉じる
