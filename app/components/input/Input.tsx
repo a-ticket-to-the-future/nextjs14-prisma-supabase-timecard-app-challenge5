@@ -26,23 +26,23 @@ const Input:React.FC<InputProps> = ({
     required,
     register,
     errors,
-    // placeholder,
-    // className,
+    placeholder,
+    className,
 }) => {
   return (
     <div className=' relative w-full'>
         <div className=' mb-2 font-bold'>
             {label}
         </div>
-            <Input 
+            <input 
                 id={id}
-                label=''
+                // label=''
                 disabled={disabled}
                 {...register(id, { required})}
                 placeholder=""
                 type={type}
-                register={register}
-                errors={errors}
+                // register={register}
+                // errors={errors}
                 className={`w-full rounded-lg border-2 p-4 outline-none transition disabled:cursor-not-allowed disabled:opacity-70
                     ${
                         errors[id]
