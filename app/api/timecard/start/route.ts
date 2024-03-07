@@ -9,7 +9,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
         const currentUser = await getCurrentUser();
 
         if( currentUser) {
-        const response = await prisma.timecard.update({
+        const startedTime = await prisma.timecard.update({
             where : {
                 id: currentUser.id
             },
@@ -19,7 +19,7 @@ export async function POST(req:NextRequest,res:NextResponse) {
         });
     
 
-        return NextResponse.json(response);
+        return NextResponse.json(startedTime);
     }
     } catch (error) {
         console.log(error)
