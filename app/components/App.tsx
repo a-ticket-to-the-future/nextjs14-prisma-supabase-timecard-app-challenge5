@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import prisma from '../lib/prismaClient';
 import { User } from '../types/types';
 import { Timecard } from '../types/types';
+import getCurrentUser from '../actions/getCurrentUser';
+import axios from 'axios';
 
 
 
@@ -42,8 +44,18 @@ const App =  () => {
         fetchTimecards()
     },[])
 
-    const timecardStart = () => {
+    const timecardStart = async () => {
         setWorkingState(true)
+
+        // try{
+        //     const currentUser = await getCurrentUser()
+        //     // if(currentUser){
+        //     //     const response = await axios.post('http://localhost:3000/api/timecard/start',{currentUser})
+        //     // }
+
+        // } catch (error) {
+        //     console.log(error)
+        // }
     }
 
     const timeCardEnd = () => {
