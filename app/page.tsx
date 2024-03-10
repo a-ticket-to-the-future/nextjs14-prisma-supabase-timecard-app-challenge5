@@ -16,7 +16,7 @@ export default async function Home() {
 
         {currentUser ? <div>
                           <div className=" text-center">認証中</div>
-                                <App />
+                                <App currentUser={currentUser} />
                           </div> 
                           : <div>未承認</div>}
       
