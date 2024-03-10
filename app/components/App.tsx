@@ -1,16 +1,18 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { ButtonHTMLAttributes, ReactEventHandler, useEffect, useState } from 'react'
 import prisma from '../lib/prismaClient';
 import { User } from '../types/types';
 import { Timecard } from '../types/types';
 import getCurrentUser from '../actions/getCurrentUser';
 import axios from 'axios';
+import PostStartData from '../actions/postStartData/PostStartData';
+// import { useAuth } from '../context/userContext';
 
 
+// const {user} = useAuth()
 
-
-const App =  () => {
+const App = (currentUser:User) => {
 
     const [users, setUsers] = useState([]);
     const [timecards, setTimecards] = useState([])
@@ -46,7 +48,7 @@ const App =  () => {
 
     const timecardStart = async () => {
         setWorkingState(true)
-
+        console.log(currentUser)
         // try{
         //     const currentUser = await getCurrentUser()
         //     // if(currentUser){
@@ -56,6 +58,12 @@ const App =  () => {
         // } catch (error) {
         //     console.log(error)
         // }
+
+            // const currentUser = await getCurrentUser()
+            // const response = await axios.post('http://:localhost:3000/api/timecard/start',{currentUser})
+            // console.log(response.data);
+            const response =  PostStartData(currentUser)
+            console.log(response); 
     }
 
     const timeCardEnd = () => {

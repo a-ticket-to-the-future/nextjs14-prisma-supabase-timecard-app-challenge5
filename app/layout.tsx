@@ -9,6 +9,7 @@ import SignupModal from "./components/modals/SignupModal";
 import LoginModal from "./components/modals/LoginModal";
 import ProfileModal from "./components/modals/ProfileModal";
 import ToasterContext from "./context/ToasterContext";
+// import userProvider from "./context/userContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <AuthContext>
+          {/* <userProvider> */}
           {/* Toaster */}
           <ToasterContext />
           {/* モーダル */}
@@ -47,6 +49,7 @@ export default async function RootLayout({
                     </div>
                   </footer>
             </div>
+            {/* </userProvider> */}
         </AuthContext>
       </body>
     </html>
