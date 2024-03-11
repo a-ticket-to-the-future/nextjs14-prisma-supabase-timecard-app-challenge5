@@ -9,10 +9,12 @@ import axios from 'axios';
 import PostStartData from '../actions/postStartData/PostStartData';
 // import { useAuth } from '../context/userContext';
 
-
+interface AppProps {
+    currentUser: User |null
+}
 // const {user} = useAuth()
 
-const App = (currentUser:User) => {
+const App:React.FC<AppProps> = ({currentUser}) => {
 
     const [users, setUsers] = useState([]);
     const [timecards, setTimecards] = useState([])
@@ -61,9 +63,12 @@ const App = (currentUser:User) => {
 
             // const currentUser = await getCurrentUser()
             // const response = await axios.post('http://:localhost:3000/api/timecard/start',{currentUser})
-            // console.log(response.data);
-            const response =  PostStartData(currentUser)
-            console.log(response); 
+            // console.log(response.data);}
+            if(currentUser){
+
+                const response =  PostStartData(currentUser)
+                console.log(response); 
+            }
     }
 
     const timeCardEnd = () => {
